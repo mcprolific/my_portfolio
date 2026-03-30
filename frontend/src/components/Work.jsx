@@ -5,11 +5,13 @@ import { motion } from "framer-motion";
 import work1 from "../assets/works/accounting.png";
 import work2 from "../assets/works/work2.png";
 import work3 from "../assets/works/work3.png";
+import { getSection } from "../state/contentStore";
 
 const Work = () => {
   const ref = useRef(null);
 
-  const projects = [
+  const stored = getSection("work");
+  const projects = stored?.projects?.length ? stored.projects : [
     { 
       title: "A Smart Accounting & Project Finance Platform", 
       description: "This platform helps government ministries, public institutions, private organizations, and accounting professionals manage project funds, record transactions, reconcile accounts, and generate compliant financial reports all with the support of an intelligent AI assistant.", 
@@ -46,11 +48,12 @@ const Work = () => {
   };
 
   return (
-    <section id="work" ref={ref} className="py-20 bg-gray-50">
+    <section id="Work" ref={ref} className="py-20 bg-gradient-to-b from-white to-gray-50">
       <div className="container px-4">
-        <h2 className="text-4xl font-bold text-gray-800 mb-10 text-center">
-          My Work
-        </h2>
+        <div className="text-center mb-10">
+          <h2 className="text-4xl font-bold text-gray-800">My Work</h2>
+          <p className="text-gray-600 mt-2">Selected projects across web, data, and AI</p>
+        </div>
 
         <motion.div
           className="grid md:grid-cols-3 gap-8 mb-8"
@@ -65,15 +68,15 @@ const Work = () => {
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="block bg-white rounded-lg shadow-md overflow-hidden transform transition-all duration-300 hover:shadow-xl"
+              className="group block bg-white rounded-2xl shadow-md overflow-hidden transform transition-all duration-300 hover:shadow-2xl"
             >
               <Link to={project.link}>
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-48 object-cover group-hover:scale-[1.02] transition"
                 />
-                <div className="p-4">
+                <div className="p-5">
                   <h3 className="font-semibold text-lg mb-1">{project.title}</h3>
                   <p className="text-gray-600 text-sm">{project.description}</p>
                 </div>

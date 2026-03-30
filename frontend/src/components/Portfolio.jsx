@@ -43,21 +43,18 @@ const Portfolio = () => {
   return (
     <section id="portfolio" ref={ref} className="py-20 bg-white fade-slide-up">
       <div className="container px-4">
-        <h2 className="text-4xl font-bold text-gray-800 mb-10 text-center">
-          Portfolio
-        </h2>
+        <div className="text-center mb-10">
+          <h2 className="text-4xl font-bold text-gray-800">Portfolio</h2>
+          <p className="text-gray-600 mt-2">Curated highlights from recent builds</p>
+        </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {projects.map((project, i) => (
-            <Link
-              to={project.link}
-              key={i}
-              className="block bg-gray-100 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition transform hover:-translate-y-2"
-            >
+            <Link to={project.link} key={i} className="group block bg-gray-100 rounded-2xl shadow-md overflow-hidden hover:shadow-2xl transition transform hover:-translate-y-2">
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-48 object-cover"
+                className="w-full h-48 object-cover group-hover:scale-[1.02] transition"
               />
               <div className="p-4">
                 <h3 className="font-semibold text-lg mb-1">{project.title}</h3>
@@ -68,10 +65,7 @@ const Portfolio = () => {
         </div>
 
         <div className="text-center">
-          <Link
-            to="/portfolio-more"
-            className="bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition transform hover:scale-105"
-          >
+          <Link to="/portfolio-more" className="bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition transform hover:scale-105">
             See More
           </Link>
         </div>

@@ -83,15 +83,15 @@ def format_docs(docs):
     return "\n\n".join(doc.page_content for doc in docs)
 
 # ---------------- RAG CHAIN ----------------
-# def get_rag_chain():
-#     return (
-#         {
-#             "context": get_retriever() | format_docs,
-#             "question": RunnablePassthrough(),
-#         }
-#         | prompt
-#         | llm
-#     )
+def get_rag_chain():
+    return (
+        {
+            "context": get_retriever() | format_docs,
+            "question": RunnablePassthrough(),
+        }
+        | prompt
+        | llm
+    )
 
 output_parser = StrOutputParser()
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { getSection } from "../state/contentStore";
 
 const About = () => {
   const containerVariants = {
@@ -20,6 +21,8 @@ const About = () => {
     hidden: { opacity: 0, scale: 0.9 },
     show: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: "easeOut" } },
   };
+
+  const about = getSection("about") || {};
 
   return (
     <section id="About" className="py-20 bg-gray-50">
@@ -43,15 +46,22 @@ const About = () => {
         >
           {/* Left Side - Personal Intro */}
           <motion.div variants={fadeUpVariant}>
-            {/* <p className="text-gray-600 mb-4 leading-relaxed">
-              Hi guys! My name is <strong>Saka Idris Ajayi</strong>. I am a student at 
-              <strong> National Open University of Nigeria</strong>. I studied B.Sc in Accounting.
-            </p> */}
             <p className="text-gray-600 mb-4 leading-relaxed">
-              I was born in Nigeria and lived there for the younger part of my life. I enjoy working with computers, programming, and using software to solve real-world problems, such as auditing accounts, detecting fraud, and building websites and applications.
+              {about.p1 || (
+                <>
+                  I was born in Nigeria and lived there for the younger part of my life. I enjoy working
+                  with computers, programming, and using software to solve real-world problems, such as
+                  auditing accounts, detecting fraud, and building websites and applications.
+                </>
+              )}
             </p>
             <p className="text-gray-600 mb-4 leading-relaxed">
-              I have knowledge in <strong>Computer Software Development, Graphics Technology, Computer Hardware, Operating Systems, and Computer Engineering</strong>.
+              {about.p2 || (
+                <>
+                  I have knowledge in <strong>Computer Software Development, Graphics Technology, Computer Hardware,
+                  Operating Systems, and Computer Engineering</strong>.
+                </>
+              )}
             </p>
           </motion.div>
 
@@ -59,23 +69,31 @@ const About = () => {
           <motion.div variants={fadeScaleVariant}>
             <h3 className="text-2xl font-semibold mb-3">Skills & Technologies:</h3>
             <ul className="list-disc list-inside text-gray-600 mb-4">
-              <li>GW Basic, QBasic, VisualBasic</li>
-              <li>PHP, Python, JavaScript, React.js, Node.js, FastAPI</li>
-              <li>AI Development, Data Analysis</li>
-              <li>Web & Mobile Applications, School Project Write-ups</li>
+              {(about.skills || [
+                "GW Basic, QBasic, VisualBasic",
+                "PHP, Python, JavaScript, React.js, Node.js, FastAPI",
+                "AI Development, Data Analysis",
+                "Web & Mobile Applications, School Project Write-ups",
+              ]).map((s, i) => (
+                <li key={i}>{s}</li>
+              ))}
             </ul>
 
             <h3 className="text-2xl font-semibold mb-3">Benefits of Hiring Me:</h3>
             <ul className="list-disc list-inside text-gray-600 mb-4">
-              <li>Available 7 days a week</li>
-              <li>Free website/software maintenance for up to a month</li>
-              <li>Responsive and mobile-friendly websites</li>
-              <li>SEO-friendly websites and optimization</li>
-              <li>Server management and website maintenance</li>
+              {(about.benefits || [
+                "Available 7 days a week",
+                "Free website/software maintenance for up to a month",
+                "Responsive and mobile-friendly websites",
+                "SEO-friendly websites and optimization",
+                "Server management and website maintenance",
+              ]).map((b, i) => (
+                <li key={i}>{b}</li>
+              ))}
             </ul>
 
             <p className="text-gray-600 font-medium">
-              100% customer satisfaction | Perfect 5-star reviews | Good communication (24/7)
+              {about.footer || "100% customer satisfaction | Perfect 5-star reviews | Good communication (24/7)"}
             </p>
           </motion.div>
         </motion.div>

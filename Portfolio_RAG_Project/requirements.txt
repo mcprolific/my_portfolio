@@ -8,3 +8,6 @@ langchain-text-splitters
 faiss-cpu
 pypdf
 openai
+mysql-connector-python
+sqlalchemy
+email-validator

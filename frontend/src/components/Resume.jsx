@@ -2,9 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaReact, FaNodeJs, FaPython, FaDatabase } from "react-icons/fa";
 import resumePDF from "../assets/CV/CV_Saka_Idris_Ajayi.pdf";
+import { getSection } from "../state/contentStore";
 
 const Resume = () => {
-  const resumeItems = [
+  const defaultItems = [
     {
       title: "Frontend Developer",
       icon: <FaReact className="text-blue-600 w-6 h-6" />,
@@ -56,6 +57,8 @@ const Resume = () => {
       ],
     },
   ];
+  const store = getSection("resume");
+  const resumeItems = store?.items?.length ? store.items : defaultItems;
 
   const containerVariants = {
     hidden: {},
@@ -70,14 +73,17 @@ const Resume = () => {
   return (
     <section id="Resume" className="py-20 bg-white">
       <div className="container px-4">
-        <motion.h2
-          className="text-4xl font-bold text-gray-800 mb-10 text-center"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          Resume
-        </motion.h2>
+        <div className="text-center mb-10">
+          <motion.h2
+            className="text-4xl font-bold text-gray-800"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            Resume
+          </motion.h2>
+          <p className="text-gray-600 mt-2">Experience snapshot and skill levels</p>
+        </div>
 
         <motion.div
           className="grid md:grid-cols-2 gap-8"
@@ -86,11 +92,7 @@ const Resume = () => {
           animate="show"
         >
           {resumeItems.map((item, index) => (
-            <motion.div
-              key={index}
-              className="p-6 bg-gray-100 rounded-lg shadow-md hover:shadow-xl transition transform hover:-translate-y-2"
-              variants={itemVariants}
-            >
+            <motion.div key={index} className="p-6 bg-gray-100 rounded-2xl shadow-md hover:shadow-xl transition transform hover:-translate-y-2" variants={itemVariants}>
               <div className="flex items-center gap-2 mb-2">
                 {item.icon}
                 <h3 className="text-xl font-semibold">{item.title}</h3>

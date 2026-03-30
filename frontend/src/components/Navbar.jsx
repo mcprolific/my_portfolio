@@ -4,7 +4,7 @@ import logo from "../assets/mcp.png";
 
 const navItems = [
   { name: "Home", type: "scroll" },
-  { name: "Work", type: "page", url: "/see-more-work" },
+  { name: "Work", type: "scroll" },
   { name: "Resume", type: "scroll" },
   { name: "About", type: "scroll" },
   { name: "Contact", type: "scroll" },
@@ -41,20 +41,24 @@ const Navbar = () => {
     return () => obs.disconnect();
   }, [location.pathname]);
 
+  const scrollToId = (id) => {
+    let el = document.getElementById(id);
+    if (!el) el = document.getElementById(id.toLowerCase());
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
   const goToSection = (id) => {
     setActive(id);
     setIsOpen(false);
 
     if (location.pathname === "/") {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: "smooth" });
+      scrollToId(id);
       return;
     }
 
     navigate("/");
     setTimeout(() => {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: "smooth" });
+      scrollToId(id);
     }, 350);
   };
 
@@ -67,19 +71,32 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed w-full z-50 top-0 transition-all duration-300 ${
-        isSticky ? "bg-white shadow-md" : "bg-transparent"
+        isSticky ? "bg-white/70 backdrop-blur-md shadow-md" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
 
         {/* Logo */}
-        <div className="flex items-center gap-3">
+        <button
+          onClick={() => {
+            setActive("Home");
+            setIsOpen(false);
+            if (location.pathname !== "/") {
+              navigate("/");
+              setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 300);
+            } else {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }}
+          className="flex items-center gap-3"
+          aria-label="Go to home"
+        >
           <img src={logo} alt="logo" className="h-11 w-11 rounded-full object-cover" />
           <span className="font-semibold text-lg text-gray-800">McProlific</span>
-        </div>
+        </button>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex items-center gap-4">
+        <ul className="hidden md:flex items-center gap-2">
           {navItems.map((item) => {
             const isActive = active === item.name;
 
@@ -88,10 +105,10 @@ const Navbar = () => {
                 {item.type === "scroll" ? (
                   <button
                     onClick={() => goToSection(item.name)}
-                    className={`capitalize text-sm font-medium px-3 py-2 rounded transition-all duration-200 ${
+                    className={`capitalize text-sm font-medium px-3 py-2 rounded-xl transition-all duration-200 ${
                       isActive
                         ? "bg-orange-500 text-white"
-                        : "text-gray-700 hover:bg-gray-100"
+                        : "text-gray-700 hover:bg-gray-100/70"
                     }`}
                   >
                     {item.name}
@@ -99,10 +116,10 @@ const Navbar = () => {
                 ) : (
                   <button
                     onClick={() => handlePageClick(item.url, item.name)}
-                    className={`capitalize text-sm font-medium px-3 py-2 rounded transition-all duration-200 ${
+                    className={`capitalize text-sm font-medium px-3 py-2 rounded-xl transition-all duration-200 ${
                       isActive
                         ? "bg-orange-500 text-white"
-                        : "text-gray-700 hover:bg-gray-100"
+                        : "text-gray-700 hover:bg-gray-100/70"
                     }`}
                   >
                     {item.name}
