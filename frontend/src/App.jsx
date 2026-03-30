@@ -3,7 +3,6 @@ import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import BoxAnimation from "./components/BoxAnimation";
 
 import Home from "./components/Home";
 import About from "./components/About";
@@ -26,7 +25,6 @@ function App() {
   const RequireAuth = ({ children }) => (isAuthed() ? children : <Navigate to="/admin/login" replace />);
   return (
     <div className="min-h-screen flex flex-col relative">
-      <BoxAnimation />
       <div className="relative z-10">
         {!isAdminRoute && <Navbar />}
 

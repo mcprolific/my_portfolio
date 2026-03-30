@@ -29,7 +29,6 @@ const Home = () => {
     return () => obs.disconnect();
   }, []);
 
-  // Background GSAP box is now provided by BoxAnimation component globally
 
   return (
     <>

@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://<YOUR_GITHUB_USERNAME>.github.io/<YOUR_REPOSITORY_NAME>",
+  "homepage": "https://mcprolific.github.io/my_portfolio",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -19,7 +19,6 @@
     "ejs": "^3.1.10",
     "font-awesome": "^4.7.0",
     "framer-motion": "^12.23.9",
-    "gsap": "^3.14.2",
     "imagesloaded": "^5.0.0",
     "isotope-layout": "^3.0.6",
     "react": "^19.1.0",
