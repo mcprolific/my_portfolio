@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaTimes, FaPaperPlane, FaUserCircle } from "react-icons/fa";
-import aiImage from "../assets/ai_assistant.jpg";
+import aiImage from "../assets/ai_assistant.png";
 
 /* Animations */
 const floatPulse = {
@@ -134,19 +134,17 @@ const AICopilot = () => {
               {messages.map((msg, i) => (
                 <div
                   key={i}
-                  className={`flex gap-2 ${
-                    msg.role === "user" ? "justify-end" : "justify-start"
-                  }`}
+                  className={`flex gap-2 ${msg.role === "user" ? "justify-end" : "justify-start"
+                    }`}
                 >
                   {msg.role === "assistant" && (
                     <img src={aiImage} className="w-6 h-6 rounded-full mt-1" />
                   )}
                   <div
-                    className={`px-3 py-2 rounded-lg max-w-[75%] ${
-                      msg.role === "user"
-                        ? "bg-blue-600 text-white"
-                        : "bg-gray-100 text-gray-800"
-                    }`}
+                    className={`px-3 py-2 rounded-lg max-w-[75%] ${msg.role === "user"
+                      ? "bg-blue-600 text-white"
+                      : "bg-gray-100 text-gray-800"
+                      }`}
                   >
                     {msg.text}
                     {loading &&
