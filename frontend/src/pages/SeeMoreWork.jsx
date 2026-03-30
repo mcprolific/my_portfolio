@@ -18,7 +18,7 @@ const SeeMoreWork = () => {
   const projects = [
     { title: "My WebSite", description: "Images description of My WebSite", image: portfolio1, link: "/portfolio/1" },
     { title: "Ogun State Aper Form", description: "An interactive dashboard with charts and analytics of staffs.", image: portfolio2, link: "/portfolio/2" },
-    { title: "Multimedia Portfolio", description: "A webpage that showcases projects using a table, images, video, and audio.", image: portfolio3, link: "https://sample-gallery.vercel.app/" },
+    { title: "Multimedia Portfolio", description: "A webpage that showcases projects using a table, images, video, and audio.", image: portfolio3, link: "#" },
     // { title: "Contact-Form", description: "Detailed description of project 4.", image: portfolio4, link: "/portfolio/4" },
     // { title: "Creative Project 5", description: "Detailed description of project 5.", image: portfolio5, link: "/portfolio/5" },
     // { title: "Creative Project 6", description: "Detailed description of project 6.", image: portfolio6, link: "/portfolio/6" },

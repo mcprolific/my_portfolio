@@ -28,7 +28,7 @@ const Work = () => {
       title: "Multimedia Portfolio", 
       description: "A webpage that showcases projects using a table, images, video, and audio.", 
       image: work3,
-      link: "https://sample-gallery.vercel.app/"
+      link: "#"
     },
   ];
 
