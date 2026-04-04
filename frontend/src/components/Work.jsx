@@ -12,23 +12,23 @@ const Work = () => {
 
   const stored = getSection("work");
   const projects = stored?.projects?.length ? stored.projects : [
-    { 
-      title: "A Smart Accounting & Project Finance Platform", 
-      description: "This platform helps government ministries, public institutions, private organizations, and accounting professionals manage project funds, record transactions, reconcile accounts, and generate compliant financial reports all with the support of an intelligent AI assistant.", 
+    {
+      title: "A Smart Accounting & Project Finance Platform",
+      description: "This platform helps government ministries, public institutions, private organizations, and accounting professionals manage project funds, record transactions, reconcile accounts, and generate compliant financial reports all with the support of an intelligent AI assistant.",
       image: work1,
       link: "/project-one"
     },
-    { 
-      title: "Ogun State Aper Form", 
-      description: "An interactive dashboard with charts and analytics of staffs.", 
+    {
+      title: "Ogun State Aper Form",
+      description: "An interactive dashboard with charts and analytics of staffs.",
       image: work2,
       link: "/project-two"
     },
-    { 
-      title: "Multimedia Portfolio", 
-      description: "A webpage that showcases projects using a table, images, video, and audio.", 
+    {
+      title: "Multimedia Portfolio",
+      description: "A webpage that showcases projects using a table, images, video, and audio.",
       image: work3,
-      link: "#"
+      link: "https://sample-gallery.vercel.app/"
     },
   ];
 
