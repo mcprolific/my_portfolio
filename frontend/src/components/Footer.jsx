@@ -1,8 +1,15 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300 py-8 px-4 animate-fade-in-up">
+    <motion.footer
+      className="bg-gray-900 text-gray-300 py-8 px-4 animate-fade-in-up"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row md:justify-between md:items-start gap-8">
         <div className="space-y-2 text-center md:text-left">
           <p className="text-sm">
@@ -36,7 +43,7 @@ const Footer = () => {
         <a href="https://www.ncc.gov.ng/" className="text-primary hover:text-orange-400 underline-offset-2 hover:underline">McP</a>
         . All Rights Reserved.
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 

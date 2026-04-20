@@ -6,7 +6,7 @@ import App from './App.jsx'
 
 import { BrowserRouter } from "react-router-dom";
 
-const basename = process.env.NODE_ENV === "production" ? "/my_portfolio/" : "/";
+const basename = import.meta.env.PROD ? "/my_portfolio/" : "/";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

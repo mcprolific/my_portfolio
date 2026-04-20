@@ -1,7 +1,8 @@
 import React from "react";
-import githubLogo from "../assets/githubLogo.png"; 
-import linkedinLogo from "../assets/linkedinLogo.png"; 
-import twitterLogo from "../assets/twitterLogo.png"; 
+import { motion } from "framer-motion";
+import githubLogo from "../assets/githubLogo.png";
+import linkedinLogo from "../assets/linkedinLogo.png";
+import twitterLogo from "../assets/twitterLogo.png";
 import { getSection } from "../state/contentStore";
 
 const Social = () => {
@@ -13,7 +14,13 @@ const Social = () => {
   ];
 
   return (
-    <section className="py-14 bg-gradient-to-b from-gray-50 to-white">
+    <motion.section
+      className="py-14 bg-gradient-to-b from-gray-50 to-white"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
       <div className="max-w-4xl mx-auto flex justify-center gap-8">
         {socialLinks.map((link) => (
           <a
@@ -32,7 +39,7 @@ const Social = () => {
           </a>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 };
 

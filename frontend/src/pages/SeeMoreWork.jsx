@@ -1,16 +1,10 @@
 import React, { useRef } from "react";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 import portfolio1 from "../assets/works/work1.png";
 import portfolio2 from "../assets/works/work2.png";
 import portfolio3 from "../assets/works/work3.png";
-import portfolio4 from "../assets/works/work4.png";
-import portfolio5 from "../assets/portfolios/s5.jpg";
-import portfolio6 from "../assets/portfolios/s6.jpg";
-import portfolio7 from "../assets/portfolios/s6.jpg";
-import portfolio8 from "../assets/portfolios/s6.jpg";
-import portfolio9 from "../assets/portfolios/s6.jpg";
 
 const SeeMoreWork = () => {
   const ref = useRef(null);

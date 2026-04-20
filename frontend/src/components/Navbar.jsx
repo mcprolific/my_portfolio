@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/mcp.png";
 
@@ -69,10 +70,13 @@ const Navbar = () => {
   };
 
   return (
-    <nav
+    <motion.nav
       className={`fixed w-full z-50 top-0 transition-all duration-300 ${
         isSticky ? "bg-white/70 backdrop-blur-md shadow-md" : "bg-transparent"
       }`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
     >
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
 
@@ -177,8 +181,7 @@ const Navbar = () => {
           })}
         </ul>
       </div>
-    </nav>
+      </motion.nav>
   );
 };
-
 export default Navbar;

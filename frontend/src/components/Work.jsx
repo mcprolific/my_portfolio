@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 import work1 from "../assets/works/accounting.png";
 import work2 from "../assets/works/work2.png";
